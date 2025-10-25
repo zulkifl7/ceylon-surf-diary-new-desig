@@ -1,44 +1,83 @@
-import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import PortfolioPage from './pages/PortfolioPage';
 import OurStoryPage from './pages/OurStoryPage';
 import PackagesPage from './pages/PackagesPage';
+import BlogPage from './pages/BlogPage';
+import BlogDetailPage from './pages/BlogDetailPage';
 import ComingSoonPage from './pages/ComingSoonPage';
 
-function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
-  const handleNavigate = (page: string) => {
-    setCurrentPage(page);
-    // Scroll to top when navigating to a new page
+  useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+
+  return null;
+}
+
+function AppContent() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const getCurrentPage = () => {
+    const path = location.pathname;
+    if (path === '/') return 'home';
+    if (path === '/portfolio') return 'portfolio';
+    if (path === '/our-story') return 'our-story';
+    if (path === '/packages') return 'packages';
+    if (path.startsWith('/blog')) return 'blog';
+    return 'home';
   };
 
-  const renderPage = () => {
-    switch (currentPage) {
+  const handleNavigate = (page: string) => {
+    switch (page) {
       case 'home':
-        return <HomePage onNavigate={handleNavigate} />;
+        navigate('/');
+        break;
       case 'portfolio':
-        return <PortfolioPage />;
+        navigate('/portfolio');
+        break;
       case 'our-story':
-        return <OurStoryPage />;
+        navigate('/our-story');
+        break;
       case 'packages':
-        return <PackagesPage />;
+        navigate('/packages');
+        break;
       case 'blog':
-        return <ComingSoonPage title="Blog" />;
+        navigate('/blog');
+        break;
       default:
-        return <HomePage onNavigate={handleNavigate} />;
+        navigate('/');
     }
   };
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
-      {renderPage()}
+      <ScrollToTop />
+      <Navigation currentPage={getCurrentPage()} onNavigate={handleNavigate} />
+      <Routes>
+        <Route path="/" element={<HomePage onNavigate={handleNavigate} />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/our-story" element={<OurStoryPage />} />
+        <Route path="/packages" element={<PackagesPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogDetailPage />} />
+      </Routes>
       <Footer onNavigate={handleNavigate} />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
