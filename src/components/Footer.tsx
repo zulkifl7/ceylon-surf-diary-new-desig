@@ -1,6 +1,6 @@
 import { Instagram } from 'lucide-react';
 import { FaPinterest } from 'react-icons/fa';
-import heroLogo from '../assets/hero-logo.svg';
+import heroLogo from '../assets/hero-logo copy.svg';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -12,8 +12,8 @@ export default function Footer({ onNavigate }: FooterProps) {
       <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-3 gap-12 items-start">
           {/* Logo Section */}
-          <div className="flex justify-center md:justify-start">
-            <img src={heroLogo} alt="Ceylon Surf Diary" className="w-48" />
+          <div className="flex justify-center  self-center">
+            <img src={heroLogo} alt="Ceylon Surf Diary" className="w-56" />
           </div>
 
           {/* Navigation Links */}
@@ -83,7 +83,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <p className="text-gray-500 font-poppins text-sm">
               Weligama, Sri Lanka.
             </p>
-            
+
             {/* Social Media Icons */}
             <div className="flex items-center justify-center md:justify-start gap-4 mt-6">
               <a
