@@ -9,10 +9,14 @@ interface HomePageProps {
 
 export default function HomePage({ onNavigate }: HomePageProps) {
   return (
-    <div>
+    <div className="bg-white">
       <Hero />
-      <ImageGallery featuredOnly={true} />
-      <OurStory />
+      <div className="bg-white">
+        <ImageGallery featuredOnly={true} />
+      </div>
+      <div className="bg-white">
+        <OurStory />
+      </div>
       <CallToAction onNavigate={onNavigate} />
     </div>
   );
