@@ -1,7 +1,13 @@
-import { useEffect, useState } from 'react';
-import { GalleryImage } from '../types/gallery';
+import { useState, useEffect, useRef } from 'react';
 import galleryData from '../data/gallery-images.json';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
+interface GalleryImage {
+  id: string;
+  image_url: string;
+  alt_text: string;
+  featured: boolean;
+  order_index: number;
+}
 
 interface ImageGalleryProps {
   featuredOnly?: boolean;
@@ -10,11 +16,50 @@ interface ImageGalleryProps {
 export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps) {
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
-  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const [visibleImages, setVisibleImages] = useState<Set<string>>(new Set());
+  const imageRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   useEffect(() => {
     fetchImages();
   }, [featuredOnly]);
+
+  useEffect(() => {
+    if (images.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const imageId = entry.target.getAttribute('data-image-id');
+          if (imageId) {
+            setVisibleImages(prev => {
+              const newSet = new Set(prev);
+              if (entry.isIntersecting) {
+                newSet.add(imageId);
+              } else {
+                newSet.delete(imageId);
+              }
+              return newSet;
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    // Observe all image elements
+    imageRefs.current.forEach((element) => {
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [images]);
 
   function fetchImages() {
     try {
@@ -35,44 +80,56 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
     }
   }
 
+  const setImageRef = (imageId: string) => (element: HTMLDivElement | null) => {
+    if (element) {
+      imageRefs.current.set(imageId, element);
+    } else {
+      imageRefs.current.delete(imageId);
+    }
+  };
+
   if (loading) {
     return (
-      <div className="py-16 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="aspect-[3/4] bg-gray-200 animate-pulse rounded"
-            />
-          ))}
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center py-8">Loading images...</div>
         </div>
-      </div>
+      </section>
     );
   }
 
   return (
-    <section ref={elementRef} className="py-16 px-6">
+    <section className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 transition-all duration-1000 ease-out ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-        }`}>
-          {images.map((image, index) => (
-            <div
-              key={image.id}
-              className={`aspect-[3/4] overflow-hidden group cursor-pointer transition-all duration-700 ease-out ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ 
-                transitionDelay: isVisible ? `${index * 100}ms` : '0ms' 
-              }}
-            >
-              <img
-                src={image.image_url}
-                alt={image.alt_text}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {images.length === 0 ? (
+            <div className="col-span-full text-center py-8">No images found</div>
+          ) : (
+            images.map((image, index) => {
+              const isVisible = visibleImages.has(image.id);
+              return (
+                <div
+                  key={image.id}
+                  ref={setImageRef(image.id)}
+                  data-image-id={image.id}
+                  className={`aspect-[3/4] overflow-hidden group cursor-pointer transition-all duration-1000 ease-out relative ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{
+                    transitionDelay: isVisible ? `${index * 150}ms` : '0ms'
+                  }}
+                >
+                  <img
+                    src={image.image_url}
+                    alt={image.alt_text}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </section>
