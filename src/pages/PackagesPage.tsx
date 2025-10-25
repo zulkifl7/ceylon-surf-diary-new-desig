@@ -129,29 +129,29 @@ export default function PackagesPage() {
                   <input
                     type="text"
                     placeholder="First name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:border-black"
                   />
                   <input
                     type="text"
                     placeholder="Last name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:border-black"
                   />
                   <input
                     type="email"
                     placeholder="Email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:border-black"
                   />
                   <input
                     type="tel"
                     placeholder="Phone number"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:border-black"
                   />
                   <input
                     type="text"
                     placeholder="Country"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:border-black"
                   />
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm text-gray-500 focus:outline-none focus:border-black">
                     <option value="">No of people</option>
                     <option value="1">1 person</option>
                     <option value="2">2 people</option>
@@ -165,7 +165,7 @@ export default function PackagesPage() {
               <div>
                 <h3 className="text-xl font-poppins font-normal mb-4">Photoshoot Details</h3>
                 <div className="space-y-4">
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm text-gray-500 focus:outline-none focus:border-black">
                     <option value="">Photo session type</option>
                     <option value="lifestyle">Lifestyle Photography</option>
                     <option value="solo">Solo Session</option>
@@ -176,18 +176,18 @@ export default function PackagesPage() {
                     <input
                       type="text"
                       placeholder="Location"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:border-black"
                     />
                     <input
                       type="date"
                       placeholder="Date"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:border-black"
                     />
                   </div>
                   <textarea
                     placeholder="Special Notes"
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg font-poppins text-sm focus:outline-none focus:border-black resize-none"
                   ></textarea>
                 </div>
               </div>
