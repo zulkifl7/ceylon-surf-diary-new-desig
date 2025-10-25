@@ -8,7 +8,7 @@ export default function CallToAction({ onNavigate }: CallToActionProps) {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div className="flex-1">
-            <h2 className="text-5xl mb-6 font-jediria tracking-wide">
+            <h2 className="text-5xl mb-6 font-jedira tracking-wide">
               Make it your way!
             </h2>
             <p className="text-gray-600 font-poppins text-lg" style={{ lineHeight: '1.8' }}>

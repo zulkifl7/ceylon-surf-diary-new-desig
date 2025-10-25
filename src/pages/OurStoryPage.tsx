@@ -2,7 +2,7 @@ export default function OurStoryPage() {
   return (
     <div className="pt-32 pb-20 px-6">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-5xl text-center mb-20 font-jediria tracking-wide">
+        <h1 className="text-5xl text-center mb-20 font-jedira tracking-wide">
           OUR STORY
         </h1>
 

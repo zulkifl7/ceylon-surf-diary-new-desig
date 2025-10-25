@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        jediria: ['Jediria', 'serif'],
+        jedira: ['Jedira', 'serif'],
         poppins: ['Poppins', 'sans-serif'],
       },
     },

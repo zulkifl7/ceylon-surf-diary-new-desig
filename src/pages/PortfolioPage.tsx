@@ -4,7 +4,7 @@ export default function PortfolioPage() {
   return (
     <div className="pt-24">
       <div className="text-center py-12">
-        <h1 className="text-5xl mb-4 font-jediria">
+        <h1 className="text-5xl mb-4 font-jedira">
           PORTFOLIO
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto px-6 font-poppins" style={{ lineHeight: '1.8' }}>

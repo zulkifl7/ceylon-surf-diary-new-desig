@@ -14,7 +14,7 @@ export default function ComingSoonPage({ title }: ComingSoonPageProps) {
             alt="Ceylon Surf Diary"
             className="w-48 mx-auto mb-8 opacity-50"
           />
-          <h1 className="text-6xl md:text-7xl font-jediria mb-6 tracking-wide">
+          <h1 className="text-6xl md:text-7xl font-jedira mb-6 tracking-wide">
             {title}
           </h1>
           <p className="text-2xl text-gray-400 mb-4 font-poppins">
@@ -28,7 +28,7 @@ export default function ComingSoonPage({ title }: ComingSoonPageProps) {
         </div>
 
         <div className="bg-gray-50 rounded-lg p-8">
-          <h3 className="text-2xl font-jediria mb-4">Stay Updated</h3>
+          <h3 className="text-2xl font-jedira mb-4">Stay Updated</h3>
           <p className="text-gray-700 font-poppins mb-6" style={{ lineHeight: '1.8' }}>
             Be the first to know when we launch new content. Get notified about photography sessions, 
             stories, and exclusive updates.

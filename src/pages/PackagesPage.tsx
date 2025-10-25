@@ -49,7 +49,7 @@ export default function PackagesPage() {
     <div className="pt-32 pb-20 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-5xl mb-6 font-jediria tracking-wide">
+          <h1 className="text-5xl mb-6 font-jedira tracking-wide">
             PACKAGES
           </h1>
           <p className="text-gray-600 max-w-3xl mx-auto font-poppins text-lg" style={{ lineHeight: '1.8' }}>
@@ -62,7 +62,7 @@ export default function PackagesPage() {
           {packages.map((pkg) => (
             <div key={pkg.id} className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-jediria mb-2">{pkg.name}</h3>
+                <h3 className="text-2xl font-jedira mb-2">{pkg.name}</h3>
                 <p className="text-gray-600 font-poppins text-sm mb-3">{pkg.subtitle}</p>
                 <div className="text-3xl font-bold text-gray-900 mb-1">{pkg.price}</div>
                 <div className="text-gray-600 font-poppins">{pkg.duration}</div>
@@ -88,7 +88,7 @@ export default function PackagesPage() {
 
         <div className="mt-16 text-center">
           <div className="bg-gray-50 rounded-lg p-8">
-            <h3 className="text-2xl font-jediria mb-4">Make it your way!</h3>
+            <h3 className="text-2xl font-jedira mb-4">Make it your way!</h3>
             <p className="text-gray-700 font-poppins mb-6" style={{ lineHeight: '1.8' }}>
               Need something different? We offer custom photography packages tailored to your specific needs. 
               Whether it's a surf competition, wedding shoot by the beach, or commercial project, let's create something unique together.
