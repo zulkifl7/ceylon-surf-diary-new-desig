@@ -46,7 +46,7 @@ const BlogPage: React.FC = () => {
             : 'opacity-0 translate-y-8'
             }`}
         >
-          <h1 className="text-5xl font-jedira mb-4">Ceylon Surf Blogs</h1>
+          <h1 className="text-5xl font-jedira mb-4 py-20">Ceylon Surf Blogs</h1>
         </div>
 
         {/* Blog Posts Grid */}
@@ -65,7 +65,7 @@ const BlogPage: React.FC = () => {
             >
               <div className="flex flex-col md:flex-row">
                 {/* Blog Image */}
-                <div className="md:w-1/4 h-48 md:h-auto my-8 ml-8 rounded-lg overflow-hidden">
+                <div className="md:w-1/4 h-48 md:h-auto my-8 ml-8 rounded-md overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
