@@ -187,11 +187,13 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">What's included in each photography package?</h3>
-                  <span className="text-2xl font-light">
+                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
                     {openFAQ === 0 ? '×' : '+'}
                   </span>
                 </button>
-                {openFAQ === 0 && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openFAQ === 0 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
                   <div className="pb-6">
                     <p className="text-gray-700 font-poppins leading-relaxed">
                       Each package includes professional photography, basic editing, and high-resolution digital images. 
@@ -199,7 +201,7 @@ export default function PackagesPage() {
                       consultation to discuss your vision and preferred locations.
                     </p>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* FAQ Item 2 */}
@@ -209,11 +211,13 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">How far in advance should I book?</h3>
-                  <span className="text-2xl font-light">
+                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
                     {openFAQ === 1 ? '×' : '+'}
                   </span>
                 </button>
-                {openFAQ === 1 && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openFAQ === 1 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
                   <div className="pb-6">
                     <p className="text-gray-700 font-poppins leading-relaxed">
                       We recommend booking at least 2-3 weeks in advance, especially during peak season (December to March). 
@@ -221,7 +225,7 @@ export default function PackagesPage() {
                       Contact us as soon as you know your travel dates for the best selection of time slots.
                     </p>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* FAQ Item 3 */}
@@ -231,11 +235,13 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">What happens if the weather is bad?</h3>
-                  <span className="text-2xl font-light">
+                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
                     {openFAQ === 2 ? '×' : '+'}
                   </span>
                 </button>
-                {openFAQ === 2 && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openFAQ === 2 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
                   <div className="pb-6">
                     <p className="text-gray-700 font-poppins leading-relaxed">
                       Sri Lanka's tropical climate can be unpredictable, but we work with the conditions to create stunning photos. 
@@ -243,7 +249,7 @@ export default function PackagesPage() {
                       we'll reschedule your session at no extra cost.
                     </p>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* FAQ Item 4 */}
@@ -253,11 +259,13 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">Can you recommend the best locations for photos?</h3>
-                  <span className="text-2xl font-light">
+                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
                     {openFAQ === 3 ? '×' : '+'}
                   </span>
                 </button>
-                {openFAQ === 3 && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openFAQ === 3 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
                   <div className="pb-6">
                     <p className="text-gray-700 font-poppins leading-relaxed">
                       Absolutely! We know all the best spots along the Sri Lankan coast - from hidden beaches to iconic surf breaks. 
@@ -265,7 +273,7 @@ export default function PackagesPage() {
                       and current conditions to ensure the best possible shots.
                     </p>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* FAQ Item 5 */}
@@ -275,11 +283,13 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">How will I receive my photos?</h3>
-                  <span className="text-2xl font-light">
+                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
                     {openFAQ === 4 ? '×' : '+'}
                   </span>
                 </button>
-                {openFAQ === 4 && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openFAQ === 4 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
                   <div className="pb-6">
                     <p className="text-gray-700 font-poppins leading-relaxed">
                       Your edited photos will be delivered via a private online gallery within 5-7 business days after your session. 
@@ -287,7 +297,7 @@ export default function PackagesPage() {
                       The gallery link allows easy downloading and sharing with friends and family.
                     </p>
                   </div>
-                )}
+                </div>
               </div>
 
               {/* FAQ Item 6 */}
@@ -297,11 +307,13 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">Do you offer prints or albums?</h3>
-                  <span className="text-2xl font-light">
+                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
                     {openFAQ === 5 ? '×' : '+'}
                   </span>
                 </button>
-                {openFAQ === 5 && (
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openFAQ === 5 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
                   <div className="pb-6">
                     <p className="text-gray-700 font-poppins leading-relaxed">
                       Yes! We can arrange professional prints and custom photo albums upon request. 
@@ -309,7 +321,7 @@ export default function PackagesPage() {
                       Print packages and albums are available as add-ons to any photography session.
                     </p>
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>
