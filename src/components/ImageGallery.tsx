@@ -30,16 +30,14 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
       (entries) => {
         entries.forEach((entry) => {
           const imageId = entry.target.getAttribute('data-image-id');
-          if (imageId) {
+          if (imageId && entry.isIntersecting) {
             setVisibleImages(prev => {
               const newSet = new Set(prev);
-              if (entry.isIntersecting) {
-                newSet.add(imageId);
-              } else {
-                newSet.delete(imageId);
-              }
+              newSet.add(imageId);
               return newSet;
             });
+            // Stop observing this element once it's been seen
+            observer.unobserve(entry.target);
           }
         });
       },
