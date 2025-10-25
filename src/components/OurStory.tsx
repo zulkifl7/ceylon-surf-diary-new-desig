@@ -1,13 +1,21 @@
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
 export default function OurStory() {
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section className="py-20 px-6 bg-white">
+    <section ref={elementRef} className="py-20 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl text-center mb-16 tracking-wide font-jedira">
+        <h2 className={`text-4xl text-center mb-16 tracking-wide font-jedira transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           OUR STORY
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+          <div className={`aspect-square bg-gray-200 rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+          }`} style={{ transitionDelay: isVisible ? '200ms' : '0ms' }}>
             <img
               src="https://images.pexels.com/photos/1654500/pexels-photo-1654500.jpeg?auto=compress&cs=tinysrgb&w=800"
               alt="Surfing in Sri Lanka"
@@ -15,7 +23,9 @@ export default function OurStory() {
             />
           </div>
 
-          <div className="space-y-6">
+          <div className={`space-y-6 transition-all duration-1000 ease-out ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+          }`} style={{ transitionDelay: isVisible ? '400ms' : '0ms' }}>
             <p
               className="text-gray-700 leading-relaxed font-poppins"
               style={{ lineHeight: '1.8' }}
