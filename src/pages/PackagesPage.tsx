@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function PackagesPage() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0); // First FAQ open by default
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
+
+  useEffect(() => {
+    // Trigger animations after component mounts
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
   const packages = [
     {
       id: 1,
@@ -49,15 +59,30 @@ export default function PackagesPage() {
     <div className="pt-32 pb-20 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-20">
-          <h1 className="text-5xl py-20 mb-6 font-jedira tracking-wide">
+          <h1 
+            className={`text-5xl py-20 mb-6 font-jedira tracking-wide transition-all duration-1000 ease-out ${
+              isLoaded 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
             OUR PACKAGES
           </h1>
-
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {packages.map((pkg) => (
-            <div key={pkg.id} className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow flex flex-col h-full">
+          {packages.map((pkg, index) => (
+            <div 
+              key={pkg.id} 
+              className={`bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-all duration-1000 ease-out flex flex-col h-full ${
+                isLoaded 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{
+                transitionDelay: `${200 + index * 150}ms`
+              }}
+            >
               <div className="text-left mb-6">
                 <h3 className="text-2xl font-poppins font-semibold mb-2">{pkg.name}</h3>
                 <p className="text-gray-600 font-poppins text-sm mb-4">{pkg.subtitle}</p>
@@ -84,7 +109,16 @@ export default function PackagesPage() {
         </div>
 
         <div className="mt-16">
-          <div className="bg-white p-8">
+          <div 
+            className={`bg-white p-8 transition-all duration-1000 ease-out ${
+              isLoaded 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+            style={{
+              transitionDelay: '650ms'
+            }}
+          >
             <h2 className="text-4xl font-jedira mb-8 text-left">Make it your way!</h2>
             
             <form className="space-y-6">
@@ -173,7 +207,16 @@ export default function PackagesPage() {
 
         {/* FAQ Section */}
         <div className="mt-16">
-          <div className="bg-white p-8">
+          <div 
+            className={`bg-white p-8 transition-all duration-1000 ease-out ${
+              isLoaded 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+            style={{
+              transitionDelay: '800ms'
+            }}
+          >
             <h2 className="text-4xl font-jedira mb-4 text-left">Frequently Asked Questions</h2>
             <p className="text-gray-600 font-poppins mb-12 text-left">
               Capturing the essence of surf culture and coastal adventures along Sri Lanka's stunning shores.
