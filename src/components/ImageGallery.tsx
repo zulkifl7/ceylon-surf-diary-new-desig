@@ -36,7 +36,7 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
   if (loading) {
     return (
       <div className="py-16 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
@@ -50,7 +50,7 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
 
   return (
     <section className="py-16 px-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {images.map((image) => (
             <div

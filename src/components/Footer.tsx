@@ -8,7 +8,7 @@ interface FooterProps {
 export default function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="bg-white border-t border-gray-100 py-12 px-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="grid md:grid-cols-3 gap-12 mb-8">
           <div>
             <img src={navLogo} alt="Ceylon Surf Diary" className="h-16 mb-4" />

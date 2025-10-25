@@ -47,7 +47,7 @@ export default function PackagesPage() {
 
   return (
     <div className="pt-32 pb-20 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-5xl mb-6 font-jediria tracking-wide">
             PACKAGES
