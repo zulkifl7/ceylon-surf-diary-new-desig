@@ -37,7 +37,7 @@ const BlogPage: React.FC = () => {
   const hasMorePosts = visiblePosts < blogPosts.length;
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-white pt-20">
       <div className="max-w-4xl mx-auto px-4 py-16">
         {/* Page Title */}
         <div 
@@ -55,7 +55,7 @@ const BlogPage: React.FC = () => {
           {displayedPosts.map((post: BlogPost, index) => (
             <div
               key={post.id}
-              className={`bg-white rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-500 ease-out ${
+              className={`bg-gray-50 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-500 ease-out ${
                 isLoaded 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-8'
@@ -67,7 +67,7 @@ const BlogPage: React.FC = () => {
             >
               <div className="flex flex-col md:flex-row">
                 {/* Blog Image */}
-                <div className="md:w-1/3 h-64 md:h-auto">
+                <div className="md:w-1/4 h-48 md:h-auto">
                   <img
                     src={post.image}
                     alt={post.title}
@@ -76,7 +76,7 @@ const BlogPage: React.FC = () => {
                 </div>
 
                 {/* Blog Content */}
-                <div className="md:w-2/3 p-8">
+                <div className="md:w-3/4 p-8">
                   <div className="flex flex-col h-full">
                     {/* Title */}
                     <h2 className="text-2xl font-poppins font-semibold mb-4 hover:text-gray-700 transition-colors">
