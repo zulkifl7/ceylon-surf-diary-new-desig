@@ -48,14 +48,11 @@ export default function PackagesPage() {
   return (
     <div className="pt-32 pb-20 px-6">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl mb-6 font-jedira tracking-wide">
-            PACKAGES
+        <div className="text-center mb-20">
+          <h1 className="text-5xl py-20 mb-6 font-jedira tracking-wide">
+            OUR PACKAGES
           </h1>
-          <p className="text-gray-600 max-w-3xl mx-auto font-poppins text-lg" style={{ lineHeight: '1.8' }}>
-            Choose the perfect photography package for your surf adventure. 
-            Each session is tailored to capture your unique moments on the waves of Sri Lanka.
-          </p>
+
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -67,7 +64,7 @@ export default function PackagesPage() {
                 <div className="text-3xl font-bold text-gray-900 mb-1">{pkg.price}</div>
                 <div className="text-gray-600 font-poppins">{pkg.duration}</div>
               </div>
-              
+
               <ul className="space-y-3 mb-8">
                 {pkg.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
@@ -78,7 +75,7 @@ export default function PackagesPage() {
                   </li>
                 ))}
               </ul>
-              
+
               <button className="w-full bg-black text-white py-3 px-6 rounded-lg font-poppins font-medium hover:bg-gray-800 transition-colors">
                 Book Now
               </button>
@@ -90,7 +87,7 @@ export default function PackagesPage() {
           <div className="bg-gray-50 rounded-lg p-8">
             <h3 className="text-2xl font-jedira mb-4">Make it your way!</h3>
             <p className="text-gray-700 font-poppins mb-6" style={{ lineHeight: '1.8' }}>
-              Need something different? We offer custom photography packages tailored to your specific needs. 
+              Need something different? We offer custom photography packages tailored to your specific needs.
               Whether it's a surf competition, wedding shoot by the beach, or commercial project, let's create something unique together.
             </p>
             <button className="bg-black text-white py-3 px-8 rounded-lg font-poppins font-medium hover:bg-gray-800 transition-colors">
