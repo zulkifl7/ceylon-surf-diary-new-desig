@@ -54,7 +54,7 @@ const BlogPage: React.FC = () => {
           {displayedPosts.map((post: BlogPost, index) => (
             <div
               key={post.id}
-              className={`bg-gray-50 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-500 ease-out ${ isLoaded
+              className={`bg-white rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-500 ease-out ${ isLoaded
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-8'
                 }`}
@@ -65,11 +65,11 @@ const BlogPage: React.FC = () => {
             >
               <div className="flex flex-col md:flex-row">
                 {/* Blog Image */}
-                <div className="md:w-1/4 h-48 md:h-auto">
+                <div className="md:w-1/4 h-48 md:h-auto my-8 ml-8 rounded-lg overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover py-8"
+                    className="w-full h-full object-cover"
                   />
                 </div>
 
