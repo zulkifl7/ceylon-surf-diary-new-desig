@@ -1,6 +1,6 @@
 export default function OurStory() {
   return (
-    <section className="py-20 px-6 bg-gray-50">
+    <section className="py-20 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl text-center mb-16 tracking-wide font-jura">
           OUR STORY
