@@ -26,7 +26,7 @@ const BlogPage: React.FC = () => {
   }, []);
 
   const handleCardClick = (slug: string) => {
-    navigate(`/blog/${slug}`);
+    navigate(`/blog/${ slug }`);
   };
 
   const loadMorePosts = () => {
@@ -40,12 +40,11 @@ const BlogPage: React.FC = () => {
     <div className="min-h-screen bg-white pt-20">
       <div className="max-w-4xl mx-auto px-4 py-16">
         {/* Page Title */}
-        <div 
-          className={`text-center mb-16 transition-all duration-1000 ease-out ${
-            isLoaded 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-8'
-          }`}
+        <div
+          className={`text-center mb-16 transition-all duration-1000 ease-out ${ isLoaded
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 translate-y-8'
+            }`}
         >
           <h1 className="text-5xl font-jedira mb-4">Ceylon Surf Blogs</h1>
         </div>
@@ -55,13 +54,12 @@ const BlogPage: React.FC = () => {
           {displayedPosts.map((post: BlogPost, index) => (
             <div
               key={post.id}
-              className={`bg-gray-50 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-500 ease-out ${
-                isLoaded 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
-              }`}
+              className={`bg-gray-50 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-500 ease-out ${ isLoaded
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-8'
+                }`}
               style={{
-                transitionDelay: `${200 + index * 150}ms`
+                transitionDelay: `${ 200 + index * 150 }ms`
               }}
               onClick={() => handleCardClick(post.slug)}
             >
@@ -71,7 +69,7 @@ const BlogPage: React.FC = () => {
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover py-8"
                   />
                 </div>
 
@@ -121,14 +119,13 @@ const BlogPage: React.FC = () => {
 
         {/* Load More Button */}
         {hasMorePosts && (
-          <div 
-            className={`text-center mt-16 transition-all duration-1000 ease-out ${
-              isLoaded 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-8'
-            }`}
+          <div
+            className={`text-center mt-16 transition-all duration-1000 ease-out ${ isLoaded
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
+              }`}
             style={{
-              transitionDelay: `${200 + displayedPosts.length * 150}ms`
+              transitionDelay: `${ 200 + displayedPosts.length * 150 }ms`
             }}
           >
             <button
