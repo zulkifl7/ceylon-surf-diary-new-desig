@@ -50,11 +50,11 @@ export default function PackagesPage() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {packages.map((pkg) => (
-            <div key={pkg.id} className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-jedira mb-2">{pkg.name}</h3>
+            <div key={pkg.id} className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow flex flex-col h-full">
+              <div className="text-left mb-6">
+                <h3 className="text-2xl font-poppins font-semibold mb-2">{pkg.name}</h3>
                 <p className="text-gray-600 font-poppins text-sm mb-4">{pkg.subtitle}</p>
-                <div className="text-4xl font-bold text-gray-900 mb-6">{pkg.price}</div>
+                <div className="text-4xl font-bold text-gray-900 mb-6 font-poppins">{pkg.price}</div>
               </div>
 
               <ul className="space-y-3 mb-6">
@@ -65,11 +65,11 @@ export default function PackagesPage() {
                 ))}
               </ul>
 
-              <p className="text-gray-600 font-poppins text-sm mb-8 leading-relaxed">
+              <p className="text-gray-600 font-poppins text-sm mb-8 leading-relaxed text-left flex-grow">
                 {pkg.description}
               </p>
 
-              <button className="w-full bg-black text-white py-3 px-6 rounded-lg font-poppins font-medium hover:bg-gray-800 transition-colors">
+              <button className="w-full bg-black text-white py-3 px-6 rounded-lg font-poppins font-medium hover:bg-gray-800 transition-colors mt-auto">
                 BOOK NOW
               </button>
             </div>
