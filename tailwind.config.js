@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        jura: ['Jura', 'sans-serif'],
+        jediria: ['Jediria', 'serif'],
         poppins: ['Poppins', 'sans-serif'],
       },
     },

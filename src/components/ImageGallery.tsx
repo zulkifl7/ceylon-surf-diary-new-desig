@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
 import { GalleryImage } from '../types/gallery';
+import galleryData from '../data/gallery-images.json';
 
 interface ImageGalleryProps {
   featuredOnly?: boolean;
@@ -14,23 +14,20 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
     fetchImages();
   }, [featuredOnly]);
 
-  async function fetchImages() {
+  function fetchImages() {
     try {
-      let query = supabase
-        .from('gallery_images')
-        .select('*')
-        .order('order_index', { ascending: true });
-
+      let filteredImages = galleryData as GalleryImage[];
+      
       if (featuredOnly) {
-        query = query.eq('featured', true);
+        filteredImages = filteredImages.filter(img => img.featured);
       }
-
-      const { data, error } = await query;
-
-      if (error) throw error;
-      setImages(data || []);
+      
+      // Sort by order_index
+      filteredImages.sort((a, b) => a.order_index - b.order_index);
+      
+      setImages(filteredImages);
     } catch (error) {
-      console.error('Error fetching images:', error);
+      console.error('Error loading images:', error);
     } finally {
       setLoading(false);
     }

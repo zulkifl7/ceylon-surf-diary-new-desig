@@ -4,6 +4,4 @@ export interface GalleryImage {
   alt_text: string;
   featured: boolean;
   order_index: number;
-  created_at: string;
-  updated_at: string;
 }

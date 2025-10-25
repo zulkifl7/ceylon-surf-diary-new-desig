@@ -53,7 +53,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                   onClick={() => onNavigate('blog')}
                   className="text-gray-600 hover:text-black transition-colors font-poppins"
                 >
-                  Contact
+                  Blog
                 </button>
               </li>
             </ul>
