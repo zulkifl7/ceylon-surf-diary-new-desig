@@ -163,6 +163,75 @@ export default function PackagesPage() {
             </form>
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <div className="mt-16">
+          <div className="bg-white p-8">
+            <h2 className="text-4xl font-jedira mb-8 text-left">Frequently Asked Questions</h2>
+            
+            <div className="space-y-6">
+              {/* FAQ Item 1 */}
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-xl font-poppins font-medium mb-3">What's included in each photography package?</h3>
+                <p className="text-gray-700 font-poppins leading-relaxed">
+                  Each package includes professional photography, basic editing, and high-resolution digital images. 
+                  The number of edited photos and session duration varies by package. All packages include a pre-shoot 
+                  consultation to discuss your vision and preferred locations.
+                </p>
+              </div>
+
+              {/* FAQ Item 2 */}
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-xl font-poppins font-medium mb-3">How far in advance should I book?</h3>
+                <p className="text-gray-700 font-poppins leading-relaxed">
+                  We recommend booking at least 2-3 weeks in advance, especially during peak season (December to March). 
+                  However, we can sometimes accommodate last-minute bookings depending on availability. 
+                  Contact us as soon as you know your travel dates for the best selection of time slots.
+                </p>
+              </div>
+
+              {/* FAQ Item 3 */}
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-xl font-poppins font-medium mb-3">What happens if the weather is bad?</h3>
+                <p className="text-gray-700 font-poppins leading-relaxed">
+                  Sri Lanka's tropical climate can be unpredictable, but we work with the conditions to create stunning photos. 
+                  Light rain can actually create beautiful atmospheric shots. If weather conditions are severe, 
+                  we'll reschedule your session at no extra cost.
+                </p>
+              </div>
+
+              {/* FAQ Item 4 */}
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-xl font-poppins font-medium mb-3">Can you recommend the best locations for photos?</h3>
+                <p className="text-gray-700 font-poppins leading-relaxed">
+                  Absolutely! We know all the best spots along the Sri Lankan coast - from hidden beaches to iconic surf breaks. 
+                  During your consultation, we'll suggest locations based on your style preferences, the time of day, 
+                  and current conditions to ensure the best possible shots.
+                </p>
+              </div>
+
+              {/* FAQ Item 5 */}
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-xl font-poppins font-medium mb-3">How will I receive my photos?</h3>
+                <p className="text-gray-700 font-poppins leading-relaxed">
+                  Your edited photos will be delivered via a private online gallery within 5-7 business days after your session. 
+                  You'll receive high-resolution files perfect for printing and social media-optimized versions. 
+                  The gallery link allows easy downloading and sharing with friends and family.
+                </p>
+              </div>
+
+              {/* FAQ Item 6 */}
+              <div className="pb-6">
+                <h3 className="text-xl font-poppins font-medium mb-3">Do you offer prints or albums?</h3>
+                <p className="text-gray-700 font-poppins leading-relaxed">
+                  Yes! We can arrange professional prints and custom photo albums upon request. 
+                  We work with high-quality printing partners to ensure your memories are preserved beautifully. 
+                  Print packages and albums are available as add-ons to any photography session.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
