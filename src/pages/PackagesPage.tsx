@@ -176,7 +176,7 @@ export default function PackagesPage() {
           <div className="bg-white p-8">
             <h2 className="text-4xl font-jedira mb-4 text-left">Frequently Asked Questions</h2>
             <p className="text-gray-600 font-poppins mb-12 text-left">
-              A connoisseur of cityscapes and a storyteller through the lens, based in the vibrant heart of London.
+              Capturing the essence of surf culture and coastal adventures along Sri Lanka's stunning shores.
             </p>
             
             <div className="space-y-0">
