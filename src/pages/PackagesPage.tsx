@@ -187,8 +187,10 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">What's included in each photography package?</h3>
-                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
-                    {openFAQ === 0 ? '×' : '+'}
+                  <span className={`text-2xl font-light transition-transform duration-300 ease-in-out ${
+                    openFAQ === 0 ? 'rotate-45' : 'rotate-0'
+                  }`}>
+                    {openFAQ === 0 ? '+' : '+'}
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -211,8 +213,10 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">How far in advance should I book?</h3>
-                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
-                    {openFAQ === 1 ? '×' : '+'}
+                  <span className={`text-2xl font-light transition-transform duration-300 ease-in-out ${
+                    openFAQ === 1 ? 'rotate-45' : 'rotate-0'
+                  }`}>
+                    {openFAQ === 1 ? '+' : '+'}
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -235,8 +239,10 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">What happens if the weather is bad?</h3>
-                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
-                    {openFAQ === 2 ? '×' : '+'}
+                  <span className={`text-2xl font-light transition-transform duration-300 ease-in-out ${
+                    openFAQ === 2 ? 'rotate-45' : 'rotate-0'
+                  }`}>
+                    {openFAQ === 2 ? '+' : '+'}
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -259,8 +265,10 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">Can you recommend the best locations for photos?</h3>
-                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
-                    {openFAQ === 3 ? '×' : '+'}
+                  <span className={`text-2xl font-light transition-transform duration-300 ease-in-out ${
+                    openFAQ === 3 ? 'rotate-45' : 'rotate-0'
+                  }`}>
+                    {openFAQ === 3 ? '+' : '+'}
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -283,8 +291,10 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">How will I receive my photos?</h3>
-                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
-                    {openFAQ === 4 ? '×' : '+'}
+                  <span className={`text-2xl font-light transition-transform duration-300 ease-in-out ${
+                    openFAQ === 4 ? 'rotate-45' : 'rotate-0'
+                  }`}>
+                    {openFAQ === 4 ? '+' : '+'}
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -307,8 +317,10 @@ export default function PackagesPage() {
                   className="w-full flex justify-between items-center py-6 text-left focus:outline-none"
                 >
                   <h3 className="text-xl font-poppins font-medium">Do you offer prints or albums?</h3>
-                  <span className="text-2xl font-light transition-transform duration-200 ease-in-out">
-                    {openFAQ === 5 ? '×' : '+'}
+                  <span className={`text-2xl font-light transition-transform duration-300 ease-in-out ${
+                    openFAQ === 5 ? 'rotate-45' : 'rotate-0'
+                  }`}>
+                    {openFAQ === 5 ? '+' : '+'}
                   </span>
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
