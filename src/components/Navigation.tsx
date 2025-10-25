@@ -1,4 +1,5 @@
-import { Facebook, Instagram } from 'lucide-react';
+import { Instagram } from 'lucide-react';
+import { FaPinterest } from 'react-icons/fa';
 import navLogo from '../assets/nav-logo copy copy.svg';
 
 interface NavigationProps {
@@ -45,12 +46,12 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
 
           <div className="flex items-center gap-4">
             <a
-              href="https://facebook.com"
+              href="https://pinterest.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-800 hover:text-gray-600 transition-colors"
             >
-              <Facebook size={18} />
+              <FaPinterest size={18} />
             </a>
             <a
               href="https://instagram.com"

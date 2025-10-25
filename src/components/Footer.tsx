@@ -1,4 +1,5 @@
-import { Facebook, Instagram } from 'lucide-react';
+import { Instagram } from 'lucide-react';
+import { FaPinterest } from 'react-icons/fa';
 import heroLogo from '../assets/hero-logo.svg';
 
 interface FooterProps {
@@ -86,12 +87,12 @@ export default function Footer({ onNavigate }: FooterProps) {
             {/* Social Media Icons */}
             <div className="flex items-center justify-center md:justify-start gap-4 mt-6">
               <a
-                href="https://facebook.com"
+                href="https://pinterest.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-600 transition-colors"
               >
-                <Facebook size={18} />
+                <FaPinterest size={18} />
               </a>
               <a
                 href="https://instagram.com"
