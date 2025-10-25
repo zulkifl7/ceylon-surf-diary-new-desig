@@ -1,4 +1,4 @@
-import heroLogo from '../assets/hero-logo.svg';
+import heroLogo from '../assets/hero-logo copy.svg';
 
 interface ComingSoonPageProps {
   title: string;
@@ -22,7 +22,7 @@ export default function ComingSoonPage({ title }: ComingSoonPageProps) {
           </p>
           <div className="w-24 h-1 bg-black mx-auto mb-8"></div>
           <p className="text-xl text-gray-600 font-poppins max-w-2xl mx-auto" style={{ lineHeight: '1.8' }}>
-            We're working on something amazing for you. This section will feature exclusive content 
+            We're working on something amazing for you. This section will feature exclusive content
             and updates from Ceylon Surf Diary.
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function ComingSoonPage({ title }: ComingSoonPageProps) {
         <div className="bg-gray-50 rounded-lg p-8">
           <h3 className="text-2xl font-jedira mb-4">Stay Updated</h3>
           <p className="text-gray-700 font-poppins mb-6" style={{ lineHeight: '1.8' }}>
-            Be the first to know when we launch new content. Get notified about photography sessions, 
+            Be the first to know when we launch new content. Get notified about photography sessions,
             stories, and exclusive updates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
