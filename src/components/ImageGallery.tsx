@@ -62,14 +62,14 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
   function fetchImages() {
     try {
       let filteredImages = galleryData as GalleryImage[];
-      
+
       if (featuredOnly) {
         filteredImages = filteredImages.filter(img => img.featured);
       }
-      
+
       // Sort by order_index
       filteredImages.sort((a, b) => a.order_index - b.order_index);
-      
+
       setImages(filteredImages);
     } catch (error) {
       console.error('Error loading images:', error);
@@ -97,7 +97,7 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
   }
 
   return (
-    <section className="py-16 px-6">
+    <section className="pb-16 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {images.length === 0 ? (
@@ -110,13 +110,12 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
                   key={image.id}
                   ref={setImageRef(image.id)}
                   data-image-id={image.id}
-                  className={`aspect-[3/4] overflow-hidden group cursor-pointer transition-all duration-1000 ease-out relative ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0' 
+                  className={`aspect-[3/4] overflow-hidden group cursor-pointer transition-all duration-1000 ease-out relative ${ isVisible
+                      ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-8'
-                  }`}
+                    }`}
                   style={{
-                    transitionDelay: isVisible ? `${index * 150}ms` : '0ms'
+                    transitionDelay: isVisible ? `${ index * 150 }ms` : '0ms'
                   }}
                 >
                   <img
