@@ -71,6 +71,12 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
       filteredImages.sort((a, b) => a.order_index - b.order_index);
 
       setImages(filteredImages);
+
+      // In featured-only mode, ensure all filtered images are visible immediately
+      if (featuredOnly) {
+        const allIds = new Set(filteredImages.map(img => img.id));
+        setVisibleImages(allIds);
+      }
     } catch (error) {
       console.error('Error loading images:', error);
     } finally {
