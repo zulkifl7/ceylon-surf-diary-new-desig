@@ -6,14 +6,18 @@ export default function OurStory() {
   return (
     <section ref={elementRef} className="py-20 px-6 bg-white">
       <div className="max-w-4xl mx-auto">
-        <h2 className={`text-4xl text-center py-20 mb-16 tracking-wide font-jedira transition-all duration-1000 ease-out ${ isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+        <h2 className={`text-4xl text-center py-20 mb-16 tracking-wide font-jedira transition-all ${ isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`} style={{ transitionDuration: '1200ms', transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)' }}>
           OUR STORY
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className={`h-full bg-white overflow-hidden transition-all duration-1000 ease-out ${ isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
-            }`} style={{ transitionDelay: isVisible ? '200ms' : '0ms' }}>
+          <div className={`h-full bg-white overflow-hidden transition-all ${ isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+            }`} style={{ 
+              transitionDuration: '1200ms',
+              transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
+              transitionDelay: isVisible ? '200ms' : '0ms' 
+            }}>
             <img
               src="/gallery-images/Frame 6-13.png"
               alt="Surfing in Sri Lanka"
@@ -21,8 +25,12 @@ export default function OurStory() {
             />
           </div>
 
-          <div className={`space-y-6 transition-all duration-1000 ease-out ${ isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-            }`} style={{ transitionDelay: isVisible ? '400ms' : '0ms' }}>
+          <div className={`space-y-6 transition-all ${ isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+            }`} style={{ 
+              transitionDuration: '1200ms',
+              transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
+              transitionDelay: isVisible ? '400ms' : '0ms' 
+            }}>
             <p
               className="text-gray-700 leading-relaxed font-poppins"
               style={{ lineHeight: '1.8' }}
