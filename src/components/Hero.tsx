@@ -19,18 +19,27 @@ export default function Hero() {
         <img
           src={heroLogo}
           alt="Ceylon Surf Diary"
-          className={`w-88 mx-auto mb-12 transition-all duration-1000 ease-out ${ isLoaded
+          className={`w-88 mx-auto mb-12 transition-all ${ isLoaded
               ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8'
+              : 'opacity-0 translate-y-12'
             }`}
+          style={{
+            transitionDuration: '1200ms',
+            transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)'
+          }}
         />
 
         <p
-          className={`text-gray-700 leading-relaxed font-poppins text-base max-w-3xl mx-auto transition-all duration-1000 ease-out delay-300 ${ isLoaded
+          className={`text-gray-700 leading-relaxed font-poppins text-base max-w-3xl mx-auto transition-all ${ isLoaded
               ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8'
+              : 'opacity-0 translate-y-12'
             }`}
-          style={{ lineHeight: '1.8' }}
+          style={{
+            lineHeight: '1.8',
+            transitionDuration: '1200ms',
+            transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
+            transitionDelay: '300ms'
+          }}
         >
           On the southern waves of Sri Lanka — Weligama, Midigama, and Ahangama — every surf
           ride tells a story. Captures the motion, the alluring, and the moments that make each wave
