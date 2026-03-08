@@ -18,17 +18,21 @@ export default function OurStoryPage() {
   return (
     <div className="pt-32 pb-20 px-6">
       <div className="max-w-5xl mx-auto">
-        <h1 className={`text-5xl text-center py-20 mb-20 font-jedira tracking-wide transition-all duration-1000 ease-out ${ isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+        <h1 className={`text-5xl text-center py-20 mb-20 font-jedira tracking-wide transition-all ${ isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`} style={{ transitionDuration: '1200ms', transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)' }}>
           OUR STORY
         </h1>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div
             ref={imageRef}
-            className={`h-full bg-white  overflow-hidden sticky top-32 transition-all duration-1000 ease-out ${ imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+            className={`h-full bg-white  overflow-hidden sticky top-32 transition-all ${ imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
               }`}
-            style={{ transitionDelay: imageVisible ? '200ms' : '0ms' }}
+            style={{
+              transitionDuration: '1200ms',
+              transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
+              transitionDelay: imageVisible ? '200ms' : '0ms'
+            }}
           >
             <img
               src="/gallery-images/Frame 6-15.png"

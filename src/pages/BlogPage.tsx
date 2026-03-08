@@ -54,11 +54,13 @@ const BlogPage: React.FC = () => {
           {displayedPosts.map((post: BlogPost, index) => (
             <div
               key={post.id}
-              className={`bg-white rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-500 ease-out ${ isLoaded
+              className={`bg-white rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-all ${ isLoaded
                 ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
+                : 'opacity-0 translate-y-12'
                 }`}
               style={{
+                transitionDuration: '1200ms',
+                transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
                 transitionDelay: `${ 200 + index * 150 }ms`
               }}
               onClick={() => handleCardClick(post.slug)}

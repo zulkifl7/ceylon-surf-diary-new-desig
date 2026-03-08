@@ -74,12 +74,14 @@ export default function PackagesPage() {
           {packages.map((pkg, index) => (
             <div 
               key={pkg.id} 
-              className={`bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-all duration-1000 ease-out flex flex-col h-full ${
+              className={`bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-all flex flex-col h-full ${
                 isLoaded 
                   ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
+                  : 'opacity-0 translate-y-12'
               }`}
               style={{
+                transitionDuration: '1200ms',
+                transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
                 transitionDelay: `${200 + index * 150}ms`
               }}
             >

@@ -43,7 +43,7 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px 200px 0px'
       }
     );
 
@@ -116,12 +116,14 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
                   key={image.id}
                   ref={setImageRef(image.id)}
                   data-image-id={image.id}
-                  className={`aspect-[3/4] overflow-hidden group cursor-pointer transition-all duration-1000 ease-out relative ${ isVisible
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-8'
+                  className={`aspect-[3/4] overflow-hidden group cursor-pointer transition-all relative ${ isVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-12'
                     }`}
                   style={{
-                    transitionDelay: isVisible ? `${ index * 150 }ms` : '0ms'
+                    transitionDuration: '1200ms',
+                    transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
+                    transitionDelay: isVisible ? `${ (index % 3) * 200 }ms` : '0ms'
                   }}
                 >
                   <img
