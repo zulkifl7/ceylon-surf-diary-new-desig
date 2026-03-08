@@ -31,7 +31,7 @@ export default function OurStoryPage() {
             style={{ transitionDelay: imageVisible ? '200ms' : '0ms' }}
           >
             <img
-              src="https://images.pexels.com/photos/1654500/pexels-photo-1654500.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="/gallery-images/Frame 6-15.png"
               alt="Surfing in Sri Lanka"
               className="w-full h-full object-cover py-2"
             />
