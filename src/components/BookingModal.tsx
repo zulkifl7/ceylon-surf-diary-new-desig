@@ -32,28 +32,33 @@ export default function BookingModal({ isOpen, onClose, packageDetails }: Bookin
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const whatsappNumber = "94767676197";
-    const message = `*NEW BOOKING REQUEST*%0A%0A` +
-      `*Package:* ${packageDetails.name} ${packageDetails.subtitle}%0A` +
-      `*Price:* ${packageDetails.price}%0A%0A` +
-      `*Client Details:*%0A` +
-      `- Name: ${formData.firstName} ${formData.lastName}%0A` +
-      `- Email: ${formData.email}%0A` +
-      `- Phone: ${formData.phone}%0A` +
-      `- Country: ${formData.country}%0A` +
-      `- People: ${formData.peopleCount}%0A` +
-      `- Preferred Date: ${formData.date}%0A` +
-      `- Notes: ${formData.notes || 'None'}`;
 
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    const whatsappNumber = "94767676197";
+    const messageLines = [
+      "*NEW BOOKING REQUEST*",
+      "",
+      `*Package:* ${ packageDetails.name } ${ packageDetails.subtitle }`,
+      `*Price:* ${ packageDetails.price }`,
+      "",
+      "*Client Details:*",
+      `- Name: ${ formData.firstName } ${ formData.lastName }`,
+      `- Email: ${ formData.email }`,
+      `- Phone: ${ formData.phone }`,
+      `- Country: ${ formData.country }`,
+      `- People: ${ formData.peopleCount }`,
+      `- Preferred Date: ${ formData.date }`,
+      `- Notes: ${ formData.notes || 'None' }`
+    ];
+
+    const message = encodeURIComponent(messageLines.join('\n'));
+    window.open(`https://wa.me/${ whatsappNumber }?text=${ message }`, '_blank');
     onClose();
   };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-500"
         onClick={onClose}
       ></div>
@@ -66,7 +71,7 @@ export default function BookingModal({ isOpen, onClose, packageDetails }: Bookin
             <h3 className="text-xl font-jedira tracking-wide">BOOKING DETAILS</h3>
             <p className="text-xs text-gray-500 font-poppins">{packageDetails.name}</p>
           </div>
-          <button 
+          <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
           >
@@ -146,7 +151,7 @@ export default function BookingModal({ isOpen, onClose, packageDetails }: Bookin
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1">
               <label className="text-xs font-poppins text-gray-500 ml-1">Number of People</label>
-              <select 
+              <select
                 required
                 name="peopleCount"
                 value={formData.peopleCount}
@@ -185,7 +190,7 @@ export default function BookingModal({ isOpen, onClose, packageDetails }: Bookin
             ></textarea>
           </div>
 
-          <button 
+          <button
             type="submit"
             className="w-full bg-black text-white py-3.5 rounded-full font-poppins font-medium hover:bg-gray-800 transition-all duration-300 mt-2 shadow-lg shadow-black/10 active:scale-[0.98]"
           >

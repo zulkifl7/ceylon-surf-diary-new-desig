@@ -47,18 +47,23 @@ export default function PackagesPage() {
   const handleCustomSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappNumber = "94767676197";
-    const message = `*CUSTOM QUOTE REQUEST*%0A%0A` +
-      `*Session Type:* ${ customFormData.sessionType }%0A` +
-      `*Location:* ${ customFormData.location }%0A` +
-      `*Date:* ${ customFormData.date }%0A%0A` +
-      `*Client Details:*%0A` +
-      `- Name: ${ customFormData.firstName } ${ customFormData.lastName }%0A` +
-      `- Email: ${ customFormData.email }%0A` +
-      `- Phone: ${ customFormData.phone }%0A` +
-      `- Country: ${ customFormData.country }%0A` +
-      `- People: ${ customFormData.peopleCount }%0A` +
-      `- Notes: ${ customFormData.notes || 'None' }`;
+    const messageLines = [
+      "*CUSTOM QUOTE REQUEST*",
+      "",
+      `*Session Type:* ${ customFormData.sessionType }`,
+      `*Location:* ${ customFormData.location }`,
+      `*Date:* ${ customFormData.date }`,
+      "",
+      "*Client Details:*",
+      `- Name: ${ customFormData.firstName } ${ customFormData.lastName }`,
+      `- Email: ${ customFormData.email }`,
+      `- Phone: ${ customFormData.phone }`,
+      `- Country: ${ customFormData.country }`,
+      `- People: ${ customFormData.peopleCount }`,
+      `- Notes: ${ customFormData.notes || 'None' }`
+    ];
 
+    const message = encodeURIComponent(messageLines.join('\n'));
     window.open(`https://wa.me/${ whatsappNumber }?text=${ message }`, '_blank');
   };
 
@@ -107,8 +112,8 @@ export default function PackagesPage() {
         <div className="text-center mb-20">
           <h1
             className={`text-5xl py-20 mb-6 font-jedira tracking-wide transition-all duration-1000 ease-out ${ isLoaded
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
               }`}
           >
             OUR PACKAGES
@@ -120,8 +125,8 @@ export default function PackagesPage() {
             <div
               key={pkg.id}
               className={`bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-all flex flex-col h-full ${ isLoaded
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-12'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-12'
                 }`}
               style={{
                 transitionDuration: '1200ms',
@@ -160,8 +165,8 @@ export default function PackagesPage() {
         <div className="mt-16">
           <div
             className={`bg-white p-8 transition-all duration-1000 ease-out ${ isLoaded
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
               }`}
             style={{
               transitionDelay: '650ms'
@@ -300,8 +305,8 @@ export default function PackagesPage() {
         <div className="mt-16">
           <div
             className={`bg-white p-8 transition-all duration-1000 ease-out ${ isLoaded
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 translate-y-8'
               }`}
             style={{
               transitionDelay: '800ms'
