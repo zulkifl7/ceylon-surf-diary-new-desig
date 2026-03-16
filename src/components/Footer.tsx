@@ -105,6 +105,21 @@ export default function Footer({ onNavigate }: FooterProps) {
             </div>
           </div>
         </div>
+
+        {/* Credit Section */}
+        <div className="mt-16 pt-8 border-t border-gray-100 text-center">
+          <p className="text-gray-400 font-poppins text-[10px] tracking-[0.15em] uppercase">
+            Designed and Developed by{' '}
+            <a
+              href="https://github.com/zulkifl7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-black transition-colors font-medium"
+            >
+              Zulkifl Ajmal
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
