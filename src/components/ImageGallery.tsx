@@ -1,13 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import galleryData from '../data/gallery-images.json';
-
-interface GalleryImage {
-  id: string;
-  image_url: string;
-  alt_text: string;
-  featured: boolean;
-  order_index: number;
-}
+import ImageLightbox from './ImageLightbox';
+import { GalleryImage } from '../types/gallery';
 
 interface ImageGalleryProps {
   featuredOnly?: boolean;
@@ -17,6 +11,7 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [visibleImages, setVisibleImages] = useState<Set<string>>(new Set());
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const imageRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   useEffect(() => {
@@ -97,40 +92,50 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
   }
 
   return (
-    <section className="pb-16 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-3 gap-2 md:gap-4">
-          {images.length === 0 ? (
-            <div className="col-span-full text-center py-8">No images found</div>
-          ) : (
-            images.map((image, index) => {
-              const isVisible = visibleImages.has(image.id);
-              return (
-                <div
-                  key={image.id}
-                  ref={setImageRef(image.id)}
-                  data-image-id={image.id}
-                  className={`aspect-[3/4] overflow-hidden group cursor-pointer transition-all relative ${ isVisible
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-12'
-                    }`}
-                  style={{
-                    transitionDuration: '1200ms',
-                    transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
-                    transitionDelay: isVisible ? `${ (index % 3) * 200 }ms` : '0ms'
-                  }}
-                >
-                  <img
-                    src={image.image_url}
-                    alt={image.alt_text}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-              );
-            })
-          )}
+    <>
+      <section className="pb-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-3 gap-2 md:gap-4">
+            {images.length === 0 ? (
+              <div className="col-span-full text-center py-8">No images found</div>
+            ) : (
+              images.map((image, index) => {
+                const isVisible = visibleImages.has(image.id);
+                return (
+                  <div
+                    key={image.id}
+                    ref={setImageRef(image.id)}
+                    data-image-id={image.id}
+                    onClick={() => setSelectedImage(image)}
+                    className={`aspect-[3/4] overflow-hidden group cursor-pointer transition-all relative ${ isVisible
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-12'
+                      }`}
+                    style={{
+                      transitionDuration: '1200ms',
+                      transitionTimingFunction: 'cubic-bezier(0.2, 0, 0, 1)',
+                      transitionDelay: isVisible ? `${ (index % 3) * 200 }ms` : '0ms'
+                    }}
+                  >
+                    <img
+                      src={image.image_url}
+                      alt={image.alt_text}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                );
+              })
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <ImageLightbox
+        isOpen={!!selectedImage}
+        onClose={() => setSelectedImage(null)}
+        imageUrl={selectedImage?.image_url || ''}
+        altText={selectedImage?.alt_text || ''}
+      />
+    </>
   );
 }
