@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from
 import { useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 import HomePage from './pages/HomePage';
 import PortfolioPage from './pages/PortfolioPage';
 import OurStoryPage from './pages/OurStoryPage';
@@ -69,6 +70,7 @@ function AppContent() {
         <Route path="/blog/:slug" element={<BlogDetailPage />} />
       </Routes>
       <Footer onNavigate={handleNavigate} />
+      <WhatsAppButton />
     </div>
   );
 }
