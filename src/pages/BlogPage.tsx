@@ -67,7 +67,7 @@ const BlogPage: React.FC = () => {
             >
               <div className="flex flex-col md:flex-row">
                 {/* Blog Image */}
-                <div className="md:w-1/4 h-48 md:h-auto my-8 ml-8 rounded-md overflow-hidden">
+                <div className="md:w-1/4 h-64 md:h-auto my-6 mx-6 md:my-8 md:ml-8 md:mr-0 rounded-md overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
