@@ -81,6 +81,20 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
     }
   };
 
+  const handleNext = () => {
+    if (!selectedImage) return;
+    const currentIndex = images.findIndex(img => img.id === selectedImage.id);
+    const nextIndex = (currentIndex + 1) % images.length;
+    setSelectedImage(images[nextIndex]);
+  };
+
+  const handlePrev = () => {
+    if (!selectedImage) return;
+    const currentIndex = images.findIndex(img => img.id === selectedImage.id);
+    const prevIndex = (currentIndex - 1 + images.length) % images.length;
+    setSelectedImage(images[prevIndex]);
+  };
+
   if (loading) {
     return (
       <section className="py-16 px-6">
@@ -133,6 +147,8 @@ export default function ImageGallery({ featuredOnly = false }: ImageGalleryProps
       <ImageLightbox
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
+        onNext={handleNext}
+        onPrev={handlePrev}
         imageUrl={selectedImage?.image_url || ''}
         altText={selectedImage?.alt_text || ''}
       />
