@@ -20,6 +20,7 @@ export default function ImageLightbox({
   altText
 }: ImageLightboxProps) {
   const [isAnimate, setIsAnimate] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -36,10 +37,24 @@ export default function ImageLightbox({
   }, [isOpen]);
 
   useEffect(() => {
+    // When a new image URL is received, fade it in by ending the transition.
+    setIsChanging(false);
+  }, [imageUrl]);
+
+  const handleNavigate = (direction: 'next' | 'prev') => {
+    if (isChanging) return; // Prevent navigation during an active transition
+    setIsChanging(true);
+    setTimeout(() => {
+      if (direction === 'next') onNext();
+      else onPrev();
+    }, 200); // Match this duration with the fade-out transition
+  };
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowRight') onNext();
-      if (e.key === 'ArrowLeft') onPrev();
+      if (e.key === 'ArrowRight') handleNavigate('next');
+      if (e.key === 'ArrowLeft') handleNavigate('prev');
     };
 
     if (isOpen) {
@@ -49,7 +64,7 @@ export default function ImageLightbox({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, onClose, onNext, onPrev]);
+  }, [isOpen, onClose, onNext, onPrev, isChanging]);
 
   if (!isOpen) return null;
 
@@ -79,14 +94,14 @@ export default function ImageLightbox({
 
         {/* Navigation Buttons - Desktop (Hidden on Mobile) */}
         <button
-          onClick={(e) => { e.stopPropagation(); onPrev(); }}
+          onClick={(e) => { e.stopPropagation(); handleNavigate('prev'); }}
           className={`hidden sm:flex absolute left-0 p-4 text-white/50 hover:text-white transition-all duration-300 hover:bg-white/10 rounded-full ${ isAnimate ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10' }`}
         >
           <ChevronLeft size={48} strokeWidth={1.5} />
         </button>
 
         <button
-          onClick={(e) => { e.stopPropagation(); onNext(); }}
+          onClick={(e) => { e.stopPropagation(); handleNavigate('next'); }}
           className={`hidden sm:flex absolute right-0 p-4 text-white/50 hover:text-white transition-all duration-300 hover:bg-white/10 rounded-full ${ isAnimate ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10' }`}
         >
           <ChevronRight size={48} strokeWidth={1.5} />
@@ -101,20 +116,20 @@ export default function ImageLightbox({
           <img
             src={imageUrl}
             alt={altText}
-            className="max-w-full max-h-full object-contain shadow-2xl rounded-sm"
+            className={`max-w-full max-h-full object-contain shadow-2xl rounded-sm transition-opacity duration-200 ${ isChanging ? 'opacity-0' : 'opacity-100' }`}
           />
         </div>
 
         {/* Navigation Buttons - Mobile (Below Image) */}
         <div className={`flex sm:hidden items-center gap-12 transition-all duration-700 delay-300 ${ isAnimate ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4' }`}>
           <button
-            onClick={(e) => { e.stopPropagation(); onPrev(); }}
+            onClick={(e) => { e.stopPropagation(); handleNavigate('prev'); }}
             className="p-3 text-white/70 hover:text-white bg-white/10 rounded-full active:scale-90 transition-transform"
           >
             <ChevronLeft size={32} />
           </button>
           <button
-            onClick={(e) => { e.stopPropagation(); onNext(); }}
+            onClick={(e) => { e.stopPropagation(); handleNavigate('next'); }}
             className="p-3 text-white/70 hover:text-white bg-white/10 rounded-full active:scale-90 transition-transform"
           >
             <ChevronRight size={32} />
