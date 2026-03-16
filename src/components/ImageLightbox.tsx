@@ -65,14 +65,17 @@ export default function ImageLightbox({
       {/* Close Button */}
       <button
         onClick={onClose}
-        className={`absolute top-6 right-6 p-2 text-white/70 hover:text-white transition-all duration-500 z-[210] ${ isAnimate ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+        className={`absolute top-6 right-6 p-2 text-white/70 hover:text-white transition-all duration-500 z-[220] ${ isAnimate ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
           }`}
       >
         <X size={32} />
       </button>
 
       {/* Main Container */}
-      <div className="relative w-full h-full flex flex-col items-center justify-center gap-6 z-[210]">
+      <div
+        className="relative w-full h-full flex flex-col items-center justify-center gap-6 z-[210]"
+        onClick={onClose}
+      >
 
         {/* Navigation Buttons - Desktop (Hidden on Mobile) */}
         <button
